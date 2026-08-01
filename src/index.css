@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #0a0a0f;
+  --color-dark-light: #12121a;
+  --color-accent: #8b5cf6;
+  --color-accent-light: #a78bfa;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-dark);
+  background-image: radial-gradient(
+      ellipse 60% 40% at 15% 0%,
+      rgba(139, 92, 246, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 85% 30%,
+      rgba(99, 102, 241, 0.1),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 50% 100%,
+      rgba(168, 85, 247, 0.1),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #07070d 0%, #0a0a14 50%, #05050a 100%);
+  color: #e2e8f0;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.btn-shine:hover::before {
+  animation: shine 1.5s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -150%;
+  }
+  50% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
