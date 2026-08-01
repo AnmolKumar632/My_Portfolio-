@@ -26,7 +26,7 @@ function filterDomProps(props: Record<string, unknown>) {
 }
 
 const mockFetch = vi.fn()
-global.fetch = mockFetch
+vi.stubGlobal('fetch', mockFetch)
 
 describe('Contact', () => {
   beforeEach(() => {

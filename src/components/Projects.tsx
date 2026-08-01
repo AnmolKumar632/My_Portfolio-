@@ -299,7 +299,6 @@ function ProjectCard({
   isInView: boolean;
   AnimationComponent: React.FC;
 }) {
-  const [isHovered, setIsHovered] = useState(false);
   const [imageError, setImageError] = useState(false);
 
   const handleLinkClick = (event: MouseEvent<HTMLAnchorElement>, link: string) => {
@@ -332,8 +331,6 @@ function ProjectCard({
       initial={{ opacity: 0, y: 60 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className={`group relative rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-900/40 backdrop-blur-md transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-violet-500/10 hover:border-indigo-500/40`}
     >
       {/* Image / Animation Area */}
